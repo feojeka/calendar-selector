@@ -1,0 +1,94 @@
+@import '../../../styles/vars';
+
+.calendar-selector {
+
+  .prev-calendar,
+  .next-calendar {
+    border: 1px solid fade(@tin, 60%);
+    padding: 0.1px; // This fixes Google chrome border not visible problem with some resolutions
+  }
+
+  table {
+    width: 100%;
+    text-align: center;
+    border: none;
+    tbody {
+      background-color: mix(@cotton, @white, 70%);
+      td {
+        cursor: pointer;
+        div {
+          height: 2.5rem;
+          line-height: 2.5rem;
+        }
+      }
+    }
+  }
+
+  .calendar-arrow-area {
+    cursor: pointer;
+    text-align: center;
+    width: 6rem;
+  }
+
+  .separator  {
+    width: 4rem;
+    text-align: center;
+  }
+
+  .day-checked {
+    background-color: @aqua;
+  }
+
+  .day-expired {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .day-not-in-month {
+    cursor: default !important;
+  }
+
+  .day-is-check-in {
+    border-top-left-radius: 2.5rem;
+    border-bottom-left-radius: 2.5rem;
+  }
+
+  .day-is-check-out {
+    border-top-right-radius: 2.5rem;
+    border-bottom-right-radius: 2.5rem;
+  }
+
+  .day-only-check-in {
+    border-radius: 2.5rem;
+  }
+
+  @media @media-md-only {
+    table tbody td {
+      div {
+        height: 2rem;
+        line-height: 2rem;
+      }
+    }
+  }
+
+  @media @media-md-max {
+
+    .calendar-arrow-area {
+      width: 4rem;
+    }
+
+    .separator  {
+      width: 2rem;
+    }
+
+  }
+
+  @media @media-xl-min {
+
+    .separator  {
+      width: 6rem;
+    }
+
+  }
+
+}

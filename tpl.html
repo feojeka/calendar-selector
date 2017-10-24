@@ -1,0 +1,124 @@
+<div class="col-xs-12 calendar-selector">
+
+  <!-- Desctop calendar -->
+  <div class="row row-align-center hide-sm-max xs-padding-medium-tb">
+
+    <div class="col calendar-arrow-area" ng-click="$ctrl.prev()">
+      <i class="spent-icon icon-medium chevron-left-icon color-blue"
+      ng-class="{'color-tin': $ctrl.disactivePrev}"></i>
+    </div>
+    <div class="col col-stretch">
+      <div class="prev-calendar">
+        <div class="text-center bg-white xs-padding-tiny-tb">
+          <span class="font-semibold font-large font-accented color-blue uppercase"
+                ng-bind="$ctrl.prevDate.format('MMMM YY')"></span>
+        </div>
+        <div class="calendar-table">
+          <table cellspacing="0" cellpadding="0">
+            <thead class="bg-white">
+              <tr>
+                <td ng-repeat="day in $ctrl.weekDays track by $index" ng-bind="day"></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="week in $ctrl.prevMonthWeeks">
+                <td ng-repeat="day in week"
+                    ng-click="$ctrl.selectDate(day)">
+                  <div ng-class="{'day-checked': day.checked,
+                     'day-expired': day.expired,
+                     'day-not-in-month': !day.inMonth,
+                     'day-is-check-in': day.isCheckIn,
+                     'day-is-check-out': day.isCheckOut,
+                     'day-only-check-in': day.onlyCheckIn}"
+                       ng-bind="day.value"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col separator">
+      <i class="spent-icon icon-medium separator-dot-icon color-cotton"></i>
+    </div>
+    <div class="col col-stretch">
+      <div class="next-calendar">
+        <div class="text-center bg-white xs-padding-tiny-tb">
+          <span class="font-semibold font-large font-accented color-blue uppercase"
+                ng-bind="$ctrl.nextDate.format('MMMM YY')"></span>
+        </div>
+        <div class="calendar-table">
+          <table cellspacing="0" cellpadding="0">
+            <thead class="bg-white">
+              <tr>
+                <td ng-repeat="day in $ctrl.weekDays track by $index" ng-bind="day"></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="week in $ctrl.nextMonthWeeks">
+                <td ng-repeat="day in week"
+                    ng-click="$ctrl.selectDate(day)">
+                  <div ng-class="{'day-checked': day.checked,
+                     'day-expired': day.expired,
+                     'day-not-in-month': !day.inMonth,
+                     'day-is-check-in': day.isCheckIn,
+                     'day-is-check-out': day.isCheckOut,
+                     'day-only-check-in': day.onlyCheckIn}"
+                       ng-bind="day.value"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col calendar-arrow-area" ng-click="$ctrl.next()">
+      <i class="spent-icon icon-medium chevron-right-icon color-blue"></i>
+    </div>
+
+  </div>
+
+  <!-- Mobile calendar-->
+  <div class="hide-md">
+    <div class="row padding-small-v">
+      <div class="col-xs-1 calendar-arrow-area" ng-click="$ctrl.prev()">
+        <i class="spent-icon icon-medium chevron-left-icon color-blue"
+           ng-class="{'color-tin': $ctrl.disactivePrev}"></i>
+      </div>
+      <div class="col-xs-10 text-center">
+        <span class="font-semibold font-large font-accented color-blue uppercase"
+              ng-bind="$ctrl.prevDate.format('MMMM YY')"></span>
+      </div>
+      <div class="col-xs-1 calendar-arrow-area" ng-click="$ctrl.next()">
+        <i class="spent-icon icon-medium chevron-right-icon color-blue"></i>
+      </div>
+    </div>
+    <div class="calendar-table">
+      <table cellspacing="0" cellpadding="0">
+        <thead class="bg-white">
+          <tr>
+            <td ng-repeat="day in $ctrl.weekDays track by $index" ng-bind="day"></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="week in $ctrl.prevMonthWeeks">
+            <td ng-repeat="day in week"
+                ng-click="$ctrl.selectDate(day)">
+              <div ng-class="{'day-checked': day.checked,
+                     'day-expired': day.expired,
+                     'day-not-in-month': !day.inMonth,
+                     'day-is-check-in': day.isCheckIn,
+                     'day-is-check-out': day.isCheckOut,
+                     'day-only-check-in': day.onlyCheckIn}"
+                   ng-bind="day.value"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <span class="tab-detail-close-button font-small font-semibold uppercase color-blue hoverable hide-md"
+          ng-click="$ctrl.clearActiveTab()"
+          translate="button.close"></span>
+  </div>
+
+</div>
